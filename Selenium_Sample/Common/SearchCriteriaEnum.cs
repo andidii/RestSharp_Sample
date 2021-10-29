@@ -1,4 +1,4 @@
-﻿namespace RestSharp_sample.Utilities
+﻿namespace Selenium_Sample.Common
 {
     public enum SearchCriteriaEnum
     {
