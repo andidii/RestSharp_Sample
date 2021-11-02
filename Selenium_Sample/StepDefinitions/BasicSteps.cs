@@ -66,11 +66,7 @@ namespace Selenium_Sample.StepDefinitions
 
             BasicControl.MoveToElement(BasicControl.GetElement(TestPageObjects.accountCreationFormAddressAliasXpath, Common.SearchCriteriaEnum.XPath));
 
-            Actions actions = new Actions(DriverHelper.Driver);
-            actions.MoveToElement(BasicControl.GetElement(TestPageObjects.accountCreationFormAddressStateXpath, Common.SearchCriteriaEnum.XPath));
-            actions.Click().Build().Perform();
-
-            BasicControl.GetElement(TestPageObjects.stateSelect, Common.SearchCriteriaEnum.XPath).Click();
+            BasicControl.SelectElementFromDropdownByValue(DriverHelper.Driver.FindElement(BasicControl.FindBy(TestPageObjects.accountCreationFormStateId, Common.SearchCriteriaEnum.Id)), "20");
 
             BasicControl.GetElement(TestPageObjects.accountCreationFormZipXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresszip);
             BasicControl.GetElement(TestPageObjects.accountCreationFormAddressCityXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresscity);

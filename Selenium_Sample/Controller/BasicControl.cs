@@ -63,5 +63,10 @@ namespace Selenium_Sample.Controller
             actions.MoveToElement(element);
             actions.Perform();
         }
+        
+        public static void SelectElementFromDropdownByValue (IWebElement element, string value)
+        {
+            new SelectElement(element).SelectByValue(value);
+        }
     }
 }
