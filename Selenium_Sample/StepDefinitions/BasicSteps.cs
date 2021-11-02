@@ -6,7 +6,6 @@ using Selenium_Sample.Factories;
 using Selenium_Sample.Models;
 using Selenium_Sample.Support;
 using System.Linq;
-using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Selenium_Sample.StepDefinitions
@@ -62,7 +61,7 @@ namespace Selenium_Sample.StepDefinitions
             BasicControl.GetElement(TestPageObjects.accountCreationFormLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.PersonalLastName);
             BasicControl.GetElement(TestPageObjects.accountCreationPasswordXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Personalpassword);
             BasicControl.GetElement(TestPageObjects.accountCreationFormAddressFirstNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addressfirstname);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresslaststname);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresslastname);
             BasicControl.GetElement(TestPageObjects.accountCreationFormAddressXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addressaddress);
 
             BasicControl.MoveToElement(BasicControl.GetElement(TestPageObjects.accountCreationFormAddressAliasXpath, Common.SearchCriteriaEnum.XPath));

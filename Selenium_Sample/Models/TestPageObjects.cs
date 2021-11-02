@@ -16,6 +16,7 @@
         public const string accountCreationFormAddressCityXpath = "//input[@id='city']";
         public const string accountCreationFormAddressStateXpath = "//div[@id='uniform-id_state']";
         public const string accountCreationFormZipXpath = "//input[@id='postcode']";
+        public const string accountCreationFormStateXpath = "//select[@id='id_state']";
         public const string stateSelect = "//select[@id='id_state']/option[3]";
         public const string accountCreationFormAddressPostCodeXpath = "//input[@id='postcode']";
         public const string accountCreationFormAddressPhoneNumberXpath = "//input[@id='phone_mobile']";

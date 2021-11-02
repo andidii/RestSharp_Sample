@@ -7,7 +7,7 @@ Scenario: Create account and log in
 	When I click login button
 	Then I see CreateAccount section
 	
-	When I enter "gwahshsyriar@mitakian.com" into email address input
+	When I enter "1121r@mitakian.com" into email address input
 	And I Click on Create Account button
 	Then I am redirected to create account form
 

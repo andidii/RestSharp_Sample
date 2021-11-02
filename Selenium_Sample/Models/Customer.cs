@@ -6,7 +6,7 @@
         public string PersonalLastName { get; set; }
         public string Personalpassword { get; set; }
         public string Addressfirstname{ get; set; }
-        public string Addresslaststname { get; set; }
+        public string Addresslastname { get; set; }
         public string Addressaddress { get; set; }
         public string Addresscity { get; set; }
         public string Addresscountry { get; set; }
