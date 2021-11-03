@@ -11,9 +11,12 @@ namespace Selenium_Sample.Support
     {
         public List<Customer> Customers { get; }
 
+        public List<Personal> Personal { get;  }
+
         public TestData()
         {
             Customers = FormCustomer();
+            Personal = FromPersonal();
         }
 
         public List<Customer> FormCustomer()
@@ -32,6 +35,24 @@ namespace Selenium_Sample.Support
             var customers = (List<Customer>)jsonSerializer.Deserialize(jsonReader, typeof(List<Customer>));
 
             return customers;
+        }
+
+        public List<Personal> FromPersonal()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            Stream personalStream = assembly.GetManifestResourceStream("Selenium_Sample.Resources.personal.json");
+
+            if (personalStream == null)
+                throw new FileNotFoundException("Could not find personal.json resource file");
+
+            var streamReader = new StreamReader(personalStream);
+            var jToken = JToken.Parse(streamReader.ReadToEnd());
+            var jsonReader = jToken.SelectToken("personal").CreateReader();
+
+            var jsonSerializer = new JsonSerializer();
+            var personal = (List<Personal>)jsonSerializer.Deserialize(jsonReader, typeof(List<Personal>));
+
+            return personal;
         }
     }
 }

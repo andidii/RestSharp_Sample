@@ -1,16 +1,13 @@
 ﻿{
   "customers": [
     {
-      "personalfirstname": "komar",
-      "personallastname": "bzyczy",
-      "personalpassword": "P@ssw0rd123!",
-      "addressfirstname": "komar",
-      "addresslastname": "bzyczy",
-      "addressaddress": "pole",
-      "addresscity": "Uc",
-      "addresszip": "90210",
-      "addressphone": "111222333",
-      "addressalias": "alias@aliasmail.com"
+      "firstname": "komar",
+      "lastname": "bzyczy",
+      "address": "pole",
+      "city": "Uc",
+      "zip": "90210",
+      "phone": "111222333",
+      "alias": "alias@aliasmail.com"
     }
   ]
 }

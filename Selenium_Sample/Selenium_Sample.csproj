@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="Resources\customers.json" />
+    <None Remove="Resources\personal.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\customers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\personal.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

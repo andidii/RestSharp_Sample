@@ -112,7 +112,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I see CreateAccount section", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 10
- testRunner.When("I enter \"1121r@mitakian.com\" into email address input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I enter \"4wahan@mitakian.com\" into email address input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
  testRunner.And("I Click on Create Account button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

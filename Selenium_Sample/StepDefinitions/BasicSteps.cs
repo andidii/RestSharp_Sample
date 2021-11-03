@@ -54,24 +54,28 @@ namespace Selenium_Sample.StepDefinitions
         [When(@"I fill create account form with data as ""(.*)""")]
         public void WhenIFillCreateAccountFormWithDataAs(string account)
         {
-            var selectedUser = new TestData().Customers.FirstOrDefault(x => string.Equals(x.PersonalFirstName, account));
-            System.Console.WriteLine(selectedUser.PersonalFirstName);
+            var personal = new TestData().Personal.FirstOrDefault(x => string.Equals(x.FirstName, account));
+            System.Console.WriteLine(personal.FirstName);
+            var customer = new TestData().Customers.FirstOrDefault(y => string.Equals(y.FirstName, account));
+            System.Console.WriteLine(customer.FirstName);
 
-            BasicControl.GetElement(TestPageObjects.accountCreationFormFirstNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.PersonalFirstName);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.PersonalLastName);
-            BasicControl.GetElement(TestPageObjects.accountCreationPasswordXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Personalpassword);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressFirstNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addressfirstname);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresslastname);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addressaddress);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormFirstNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(personal.FirstName);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(personal.LastName);
+            BasicControl.GetElement(TestPageObjects.accountCreationPasswordXpath, Common.SearchCriteriaEnum.XPath).SendKeys(personal.Password);
+            BasicControl.ClearField(BasicControl.GetElement(TestPageObjects.accountCreationFormAddressFirstNameXpath, Common.SearchCriteriaEnum.XPath));
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressFirstNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.FirstName);
+            BasicControl.ClearField(BasicControl.GetElement(TestPageObjects.accountCreationFormAddressLastNameXpath, Common.SearchCriteriaEnum.XPath));
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressLastNameXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.LastName);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.Address);
 
             BasicControl.MoveToElement(BasicControl.GetElement(TestPageObjects.accountCreationFormAddressAliasXpath, Common.SearchCriteriaEnum.XPath));
 
             BasicControl.SelectElementFromDropdownByValue(DriverHelper.Driver.FindElement(BasicControl.FindBy(TestPageObjects.accountCreationFormStateId, Common.SearchCriteriaEnum.Id)), "20");
 
-            BasicControl.GetElement(TestPageObjects.accountCreationFormZipXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresszip);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressCityXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addresscity);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressPhoneNumberXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addressphone);
-            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressAliasXpath, Common.SearchCriteriaEnum.XPath).SendKeys(selectedUser.Addressalias);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormZipXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.Zip);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressCityXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.City);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressPhoneNumberXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.Phone);
+            BasicControl.GetElement(TestPageObjects.accountCreationFormAddressAliasXpath, Common.SearchCriteriaEnum.XPath).SendKeys(customer.Alias);
         }
 
         [Then(@"I see form is filled")]
