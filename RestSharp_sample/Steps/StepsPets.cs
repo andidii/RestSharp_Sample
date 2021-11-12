@@ -27,7 +27,7 @@ namespace RestSharp_sample.StepsPets
         [When(@"I execute call")]
         public void WhenIExecuteCall()
         {
-            this.settingsPets.Response = this.settingsPets.RestClient.ExecuteAsync(this.settingsPets.Request).GetAwaiter().GetResult();
+            this.settingsPets.Response = this.settingsPets.RestClient.Execute(this.settingsPets.Request);
 
         }
 
@@ -81,7 +81,7 @@ namespace RestSharp_sample.StepsPets
             };
             var serializedBody = JsonConvert.SerializeObject(body);
             this.settingsPets.Request.AddParameter("application/json", serializedBody, ParameterType.RequestBody);
-            this.settingsPets.Response = this.settingsPets.RestClient.ExecuteAsync<PostPetModel>(this.settingsPets.Request).GetAwaiter().GetResult();
+            this.settingsPets.Response = this.settingsPets.RestClient.Execute<PostPetModel>(this.settingsPets.Request);
         }
 
         [When(@"I add Request body to update pet status")]
@@ -112,7 +112,7 @@ namespace RestSharp_sample.StepsPets
             };
             var serializedBody = JsonConvert.SerializeObject(body);
             this.settingsPets.Request.AddParameter("application/json", serializedBody, ParameterType.RequestBody);
-            this.settingsPets.Response = this.settingsPets.RestClient.ExecuteAsync<PostPetModel>(this.settingsPets.Request).GetAwaiter().GetResult();
+            this.settingsPets.Response = this.settingsPets.RestClient.Execute<PostPetModel>(this.settingsPets.Request);
         }
 
         [Given(@"I prepare Delete endpoint to remove pet")]
