@@ -19,7 +19,7 @@ namespace RestSharp_sample.StepsPets
         [Given(@"I prepare all '(.*)' Pets under '(.*)' endpoint")]
         public void GivenIPrepareAllPetsUnderEndpoint(string status, string url)
         {
-            this.settingsPets.Request = new RestRequest(url, Method.GET);
+            this.settingsPets.Request = new RestRequest(url, Method.Get);
             this.settingsPets.Request.AddHeader("Accept", "application/json");
             this.settingsPets.Request.AddParameter("status", status, ParameterType.QueryString);
         }
@@ -118,7 +118,7 @@ namespace RestSharp_sample.StepsPets
         [Given(@"I prepare Delete endpoint to remove pet")]
         public void GivenIPrepareDeleteEndpointToRemovePet()
         {
-            this.settingsPets.Request = new RestRequest("/pet/200910", Method.DELETE);
+            this.settingsPets.Request = new RestRequest("/pet/200910", Method.Delete);
         }
 
 
