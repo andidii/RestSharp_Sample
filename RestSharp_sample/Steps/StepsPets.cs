@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FluentAssertions;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using RestSharp;
 using RestSharp_sample.Models;
@@ -34,7 +35,7 @@ namespace RestSharp_sample.StepsPets
         [Then(@"I get response code ""(.*)""")]
         public void ThenIGetResponseCode(int code)
         {
-            Assert.AreEqual(code, ((int)this.settingsPets.Response.StatusCode));
+            code.Should().Be((int)this.settingsPets.Response.StatusCode);
         }
 
 
